@@ -95,6 +95,8 @@ if scene_type=="synthetic":
 
     def image_read_fn(fname):
       with open(fname, "rb") as imgin:
+        img = Image.open(imgin)
+        img = img.resize((img.width // 4, img.height // 4), Image.LANCZOS)
         image = np.array(Image.open(imgin), dtype=np.float32) / 255.
       return image
     with ThreadPool() as pool:
