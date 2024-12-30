@@ -1349,7 +1349,7 @@ def render_rays(rays, vars, keep_num, threshold, wbgcolor, rng):
 #%% --------------------------------------------------------------------------------
 # ## Set up pmap'd rendering for test time evaluation.
 #%%
-test_batch_size = 1024*n_device
+test_batch_size = 128*n_device
 test_keep_num = point_grid_size*3//4
 test_threshold = 0.1
 test_wbgcolor = 0.0
