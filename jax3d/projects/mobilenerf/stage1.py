@@ -99,7 +99,7 @@ if scene_type=="synthetic":
         img = img.resize((img.width // 4, img.height // 4), Image.LANCZOS)
         image = np.array(Image.open(imgin), dtype=np.float32) / 255.
       return image
-    with ThreadPool() as pool:
+    with ThreadPool(processes=2) as pool:
       images = pool.map(image_read_fn, paths)
       pool.close()
       pool.join()
